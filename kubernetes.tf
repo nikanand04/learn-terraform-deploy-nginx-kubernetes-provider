@@ -12,10 +12,12 @@ terraform {
 }
 
 data "terraform_remote_state" "aks" {
-  backend = "local"
-
-  config = {
-    path = "../learn-terraform-provision-aks-cluster/terraform.tfstate"
+  backend = "remote"
+  config  = {
+    organization = var.org
+    workspaces   = {
+      name       = "terraform-provision-aks-cluster"
+    }
   }
 }
 
