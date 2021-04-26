@@ -14,7 +14,7 @@ terraform {
 data "terraform_remote_state" "aks" {
   backend = "remote"
   config  = {
-    organization = var.org
+    organization = "nikita_hashi"
     workspaces   = {
       name       = "terraform-provision-aks-cluster"
     }
